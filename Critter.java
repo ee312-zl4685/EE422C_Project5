@@ -48,7 +48,29 @@ public abstract class Critter {
 		myPackage = Critter.class.getPackage().toString().split(" ")[1];
 	}
 	
-	protected final String look(int direction, boolean steps) {return "";}
+	protected final String look(int direction, boolean steps) {
+		
+		Critter tempCritter = new Algae();
+		tempCritter.x_coord = this.x_coord;
+		tempCritter.y_coord = this.y_coord;
+		tempCritter.energy  = start_energy;
+		
+		if(steps == true){
+			tempCritter.run(direction);
+		}
+		else{
+			tempCritter.walk(direction);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		return "";
+	}
 	
 	/* rest is unchanged from Project 4 */
 	
@@ -491,8 +513,9 @@ public abstract class Critter {
 	 * */
 	public static void worldTimeStep() {
 		timestep += 1;
-
+		
 		Iterator<Critter> it = population.iterator();
+		it.next().look(2, true);
 		while (it.hasNext()) {
 			it.next().doTimeStep();	//run each Critters TimeStep
 		}
