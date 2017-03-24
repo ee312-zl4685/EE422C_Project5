@@ -6,9 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
 	static GridPane grid = new GridPane();
