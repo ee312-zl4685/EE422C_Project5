@@ -10,7 +10,7 @@
  * https://github.com/ee312-zl4685/EE422C_Project4
  * Spring 2017
  */
-package assignment4;
+package assignment5;
 import java.util.*;
 
 /*  Critter3 is also known as Bolt Critter, this critter runs in a circle.
@@ -28,7 +28,8 @@ public class Critter3 extends Critter {
         history += 1;
     }
 
-
+    @Override
+    public CritterShape viewShape() { return CritterShape.SQUARE; }
 
     @Override
     public void doTimeStep() {

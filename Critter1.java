@@ -1,4 +1,4 @@
-package assignment4;
+package assignment5;
 
 import java.util.*;
 
@@ -39,6 +39,9 @@ public class Critter1 extends Critter {
             return false;
         }
     }
+
+    @Override
+    public CritterShape viewShape() { return CritterShape.SQUARE; }
 
     public String toString() {
         return "E";

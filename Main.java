@@ -1,9 +1,14 @@
 package assignment5;
 
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
 	static GridPane grid = new GridPane();
@@ -11,11 +16,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			grid.setGridLinesVisible(true);
-			Scene scene = new Scene(grid, 500, 500);
+
+			Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Critters");
 			primaryStage.show();
-			// Paints the icons. Painter.paint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,4 +1,4 @@
-package assignment4;
+package assignment5;
 
 /*
  * Critter2 created by Zhaofeng Liang
@@ -21,6 +21,9 @@ public class Critter2 extends Critter {
         // Initialize age as 0;
         age = 0;
     }
+
+    @Override
+    public CritterShape viewShape() { return CritterShape.SQUARE; }
 
     @Override
     public void doTimeStep() {

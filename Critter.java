@@ -33,7 +33,7 @@ public abstract class Critter {
 	public javafx.scene.paint.Color viewOutlineColor() { return viewColor(); }
 	public javafx.scene.paint.Color viewFillColor() { return viewColor(); }
 	
-	public abstract CritterShape viewShape(); 
+	public abstract CritterShape viewShape();
 	
 	private static int timestep; //Variable to keep track of time (used in the future)
 	private static String myPackage;

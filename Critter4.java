@@ -10,10 +10,10 @@
  * https://github.com/ee312-zl4685/EE422C_Project4
  * Spring 2017
  */
-package assignment4;
+package assignment5;
 import java.util.*;
 
-import static assignment4.Params.*;
+import static assignment5.Params.*;
 
 /*
     Critter4 is also known as the Mama Critter
@@ -57,6 +57,9 @@ public class Critter4 extends Critter {
         isPregnant=false;
 
     }
+
+    @Override
+    public CritterShape viewShape() { return CritterShape.STAR; }
 
     @Override
     public boolean fight(String opponent) {
