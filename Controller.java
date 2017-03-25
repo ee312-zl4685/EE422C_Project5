@@ -53,21 +53,20 @@ public class Controller {
 
     @FXML
     private void goMakeCritter() throws IOException{
-    	
-        try {
-            String str = tfSteps.getText();
-            Critter.makeCritter(str);
-            RunStatsConsole.setText(str);
-        } catch (InvalidCritterException e) {
-            e.printStackTrace();
+        String StrQuantity = tfMakeCritter.getText();
+        String type = cbMakeCritter.getValue();
+        Integer Quantity = 1;
+        if(StrQuantity.length() > 0) {
+            Quantity = Integer.parseInt(StrQuantity);
         }
 
+        while(Quantity > 0) {
+            try {
+                Critter.makeCritter(type);
+            } catch (InvalidCritterException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
-    @FXML
-    private String handleMakeCritter() {
-        return tfSteps.getText();
-    }
-
 
 }
