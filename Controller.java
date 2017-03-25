@@ -4,9 +4,6 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.*;
 import javafx.scene.control.Button;
@@ -16,9 +13,6 @@ import javafx.scene.control.TextField;
 
 public class Controller {
 
-	ObservableList<String> critterNameList = 
-			(ObservableList<String>) FXCollections.observableArrayList("Algae","Craig","Critter1","Critter2","Critter3","Critter4");
-	
     @FXML
     private ChoiceBox<String> cbMakeCritter;
     @FXML
@@ -45,11 +39,6 @@ public class Controller {
     @FXML
     private TextField RunStatsConsole;
 
-    @FXML
-    private void initialize(){
-    	cbMakeCritter.setValue("Algae");
-    	cbMakeCritter.setItems(critterNameList);
-    }
 
     @FXML
     private void goMakeCritter() throws IOException{
@@ -68,5 +57,10 @@ public class Controller {
             }
         }
     }
+
+
+
+
+
 
 }
