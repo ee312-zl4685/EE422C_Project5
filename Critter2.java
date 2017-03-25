@@ -23,9 +23,6 @@ public class Critter2 extends Critter {
     }
 
     @Override
-    public CritterShape viewShape() { return CritterShape.SQUARE; }
-
-    @Override
     public void doTimeStep() {
         // Increment age every timestep and rest, walk, run based on age
         age++;
@@ -66,7 +63,8 @@ public class Critter2 extends Critter {
         return "Z";
     }
 
-    public static void runStats(java.util.List<Critter> Critter2) {
+    public static String runStats(java.util.List<Critter> Critter2) {
+    	String str = "";
         int children = 0;
         int teenager = 0;
         int adult = 0;
@@ -90,12 +88,30 @@ public class Critter2 extends Critter {
                 elder++;
             }
         }
-        System.out.println("There are " + Critter2.size() + " Critter2 in the world.");
-        System.out.println("There are " + children + " children Critter2 in the world.");
-        System.out.println("There are " + teenager + " teenager Critter2 in the world.");
-        System.out.println("There are " + adult + " adult Critter2 in the world.");
-        System.out.println("There are " + middleage + " middle age Critter2 in the world.");
-        System.out.println("There are " + elder + " elder Critter2 in the world.");
+        str = str.concat("There are " + Critter2.size() + " Critter2 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + children + " children Critter2 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + teenager + " teenager Critter2 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + adult + " adult Critter2 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + middleage + " middle age Critter2 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + elder + " elder Critter2 in the world.");
+        
+        return str;
     }
+
+	@Override
+	public CritterShape viewShape() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

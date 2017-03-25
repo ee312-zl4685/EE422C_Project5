@@ -20,6 +20,7 @@ import static assignment5.Params.*;
     Critter4 has the special ability to get pregnant and have up-to 8 children in a turn.
     Critter4 are specially loving and in support of their pacifist beliefs, they choose not to fight anyone.
 * */
+
 public class Critter4 extends Critter {
 
     private boolean isPregnant;
@@ -59,14 +60,12 @@ public class Critter4 extends Critter {
     }
 
     @Override
-    public CritterShape viewShape() { return CritterShape.STAR; }
-
-    @Override
     public boolean fight(String opponent) {
         return false;
     }
 
-    public static void runStats(List<Critter> critters) {
+    public static String runStats(List<Critter> critters) {
+    	String str = "";
         int preg =0;
         Critter4 temp;
         for(Object c : critters){
@@ -74,13 +73,22 @@ public class Critter4 extends Critter {
             if(temp.isPregnant)
                 preg += 1;
         }
-        System.out.println(critters.size()+" MyCritter4s in the world.");
-        System.out.println(preg + " are pregnant MyCritter4s.");
+        str = str.concat(critters.size()+" MyCritter4s in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat(preg + " are pregnant MyCritter4s.");
+        return str;
     }
 
 
     public String toString() {
         return "M";
     }
+
+	@Override
+	public CritterShape viewShape() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

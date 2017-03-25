@@ -40,15 +40,14 @@ public class Critter1 extends Critter {
         }
     }
 
-    @Override
-    public CritterShape viewShape() { return CritterShape.SQUARE; }
-
     public String toString() {
         return "E";
     }
 
-    public static void runStats(java.util.List<Critter> Critter1) {
-
+    public static String runStats(java.util.List<Critter> Critter1) {
+    	
+    	String str = "";
+    	
         int starving = 0;
         for (Object obj : Critter1) {
             Critter1 c = (Critter1) obj;
@@ -56,8 +55,11 @@ public class Critter1 extends Critter {
                 starving ++;
             }
         }
-        System.out.println("There are total number of " + Critter1.size() + " Critter1 in the world.");
-        System.out.println("There are " + starving + " starving and weak Critter1.");
+        str = str.concat("There are total number of " + Critter1.size() + " Critter1 in the world.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There are " + starving + " starving and weak Critter1.");
+        return str;
     }
 
 
@@ -68,5 +70,11 @@ public class Critter1 extends Critter {
     public void setTurn(int turn) {
         this.turn = turn;
     }
+
+	@Override
+	public CritterShape viewShape() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
