@@ -5,20 +5,20 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="910.0" style="-fx-background-color: RED;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="910.0" style="-fx-background-color: RED;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5.Controller">
    <children>
       <SplitPane dividerPositions="0.30066079295154186" layoutY="31.0" prefHeight="576.0" prefWidth="910.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ChoiceBox id="cbMakeCritter" layoutX="14.0" layoutY="49.0" prefHeight="31.0" prefWidth="90.0" />
+                  <ChoiceBox id="cbMakeCritter" fx:id="cbMakeCritter" layoutX="14.0" layoutY="49.0" prefHeight="31.0" prefWidth="90.0" />
                   <TextField id="tfMakeCritter" layoutX="104.0" layoutY="49.0" prefHeight="31.0" prefWidth="60.0" promptText="Enter Quantity" />
-                  <Button id="bMakeCritter" layoutX="163.0" layoutY="49.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="Make" />
-                  <TextField id="tfTimeStep" layoutX="14.0" layoutY="91.0" prefHeight="31.0" prefWidth="153.0" promptText="Enter time steps" />
+                  <Button id="bMakeCritter" fx:id="bMakeCritter" layoutX="163.0" layoutY="49.0" mnemonicParsing="false" onAction="#goMakeCritter" prefHeight="31.0" prefWidth="90.0" text="Make" />
+                  <TextField id="tfTimeStep" fx:id="tfSteps" layoutX="14.0" layoutY="91.0" prefHeight="31.0" prefWidth="153.0" promptText="Enter time steps" />
                   <Button id="bTime" layoutX="166.0" layoutY="91.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="Step" />
                   <ChoiceBox id="cbStats" layoutX="16.0" layoutY="134.0" prefWidth="150.0" />
-                  <Button id="bStats" layoutX="166.0" layoutY="134.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="Confirm" />
-                  <TextField id="RunStatsConsole" layoutX="11.0" layoutY="264.0" prefHeight="296.0" prefWidth="245.0" promptText="Stats shown here" />
+                  <Button id="bStats" fx:id="bRunStats" layoutX="166.0" layoutY="134.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="Confirm" />
+                  <TextField id="RunStatsConsole" fx:id="RunStatsConsole" layoutX="11.0" layoutY="264.0" prefHeight="296.0" prefWidth="245.0" promptText="Stats shown here" />
                   <Slider id="Speed" layoutX="14.0" layoutY="189.0" prefHeight="18.0" prefWidth="245.0" />
                   <TextField id="tfSpeed" layoutX="16.0" layoutY="219.0" prefHeight="31.0" prefWidth="76.0" promptText="Speed" />
                   <TextField id="tfTime" layoutX="169.0" layoutY="219.0" prefHeight="31.0" prefWidth="84.0" promptText="Time" />
