@@ -68,24 +68,7 @@ public class Controller {
             }
         }
     }
-	
-@FXML
-    private void timeStep() throws IOException{
-        String StrQuantity = tfSteps.getText();
-        Integer Quantity =1;
-        if(StrQuantity.length() > 0){
-            try {
-                Quantity = Integer.parseInt(StrQuantity);
-            } catch (Exception e){
-               tfSteps.setText("INTEGER!");
-            }
-        }
 
-        while(Quantity > 0){
-            Critter.worldTimeStep();
-            Quantity -= 1;
-        }
-    }	
 
     @FXML
     private void timeStep() throws IOException{
