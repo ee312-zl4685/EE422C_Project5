@@ -21,18 +21,26 @@ public class Controller {
     private Button bMakeCritter;
 
     @FXML
-    private TextField RunStatsConsole;
+    private TextField tfSteps;
     @FXML
-    private TextField tfTime;
+    private Button bSteps;
 
     @FXML
-    private TextField tfSteps;
+    private ChoiceBox<String> cbRunStats;
     @FXML
     private Button bRunStats;
 
     @FXML
     private Slider SpeedSlider;
+    @FXML
+    private TextField Speed;
+    @FXML
+    private TextField tfTime;
+    @FXML
+    private TextField RunStatsConsole;
 
+
+    @FXML
     private void goMakeCritter() throws IOException{
         try {
             String str = tfSteps.getText();
