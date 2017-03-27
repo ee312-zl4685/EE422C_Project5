@@ -28,8 +28,7 @@ public class Critter3 extends Critter {
         history += 1;
     }
 
-    @Override
-    public CritterShape viewShape() { return CritterShape.SQUARE; }
+
 
     @Override
     public void doTimeStep() {
@@ -47,7 +46,15 @@ public class Critter3 extends Critter {
     }
 
 
-    public static void runStats(List<Critter> critters) {
+    public static String runStats(List<Critter> critters) {
+    	String str = "";
+    	if(critters.size() < 1){
+    		str = str.concat(critters.size() + " Critter3s in the world right now.");
+            str = str.concat("\n");
+            str = str.concat("\n");
+            str = str.concat("There have been 0 Critter3s ever.");
+            return str;
+    	}
         Critter3 max = (Critter3) critters.get(0);
         Critter3 temp;
         for(Object c : critters){
@@ -56,13 +63,26 @@ public class Critter3 extends Critter {
                 max=temp;
         }
         history -= 1;
-        System.out.println(critters.size() + " Critter3s in the world right now.");
-        System.out.println("There have been "+ (history)+ " Critter3s ever.");
-        System.out.println("The longest surviving Critter3 right now: " +max.dir);
+        str = str.concat(critters.size() + " Critter3s in the world right now.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("There have been "+ (history)+ " Critter3s ever.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat("The longest surviving Critter3 right now: " +max.dir);
+        return str;
     }
 
     public String toString() {
         return "W";
     }
+
+
+
+	@Override
+	public CritterShape viewShape() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -33,7 +33,7 @@ public abstract class Critter {
 	public javafx.scene.paint.Color viewOutlineColor() { return viewColor(); }
 	public javafx.scene.paint.Color viewFillColor() { return viewColor(); }
 	
-	public abstract CritterShape viewShape();
+	public abstract CritterShape viewShape(); 
 	
 	private static int timestep; //Variable to keep track of time (used in the future)
 	private static String myPackage;
@@ -62,14 +62,15 @@ public abstract class Critter {
 			tempCritter.walk(direction);
 		}
 		
+		Iterator<Critter> it = population.iterator();
+		while(it.hasNext()){
+			Critter a = it.next();
+			if(a.x_coord == tempCritter.x_coord && a.y_coord == tempCritter.y_coord){
+				return a.toString();
+			}
+		}
 		
-		
-		
-		
-		
-		
-		
-		return "";
+		return null;
 	}
 	
 	/* rest is unchanged from Project 4 */
@@ -387,9 +388,9 @@ public abstract class Critter {
 	 * */
 	private static boolean isOccupied(Critter a){
 
-		Iterator it = population.iterator();
+		Iterator<Critter> it = population.iterator();
 		while(it.hasNext()){
-			Critter b = (Critter) it.next();
+			Critter b = it.next();
 			if((a != b) && a.dead == false && b.dead == false && (a.x_coord == b.x_coord) && (a.y_coord == b.y_coord)){
 				return true;
 			}
@@ -519,7 +520,10 @@ public abstract class Critter {
 		while (it.hasNext()) {
 			it.next().doTimeStep();	//run each Critters TimeStep
 		}
-
+		
+		population.removeAll(deadList);
+		deadList.clear();
+		
 		doEncounter();	//check collisions
 
 		Iterator<Critter> it2 = population.iterator();
@@ -537,7 +541,12 @@ public abstract class Critter {
 
 	}
 	
-	public static void displayWorld(Object pane) {} 
+	public static void displayWorld(Object pane) {
+		
+		
+		
+		
+	} 
 	/* Alternate displayWorld, where you use Main.<pane> to reach into your
 	   display component.
 	   // public static void displayWorld() {}
@@ -610,9 +619,9 @@ public abstract class Critter {
 		List<Critter> result = new java.util.ArrayList<Critter>();
 
 		Critter temp = getCritterFromString(critter_class_name); // Generate a temporary Critter of type critter_class_name
-		Iterator it = population.iterator();
+		Iterator<Critter> it = population.iterator();
 		while (it.hasNext()) {
-			Critter a = (Critter) it.next();
+			Critter a = it.next();
 			if (a.getClass().isInstance(temp))	//if Critter a matches the temporary created earlier, add to results List
 				result.add(a);
 		}
@@ -624,8 +633,10 @@ public abstract class Critter {
 	 * Prints out how many Critters of each type there are on the board.
 	 * @param critters List of Critters.
 	 */
-	public static void runStats(List<Critter> critters) {
-		System.out.print("" + critters.size() + " critters as follows -- ");
+	public static String runStats(List<Critter> critters) {
+		String str = "";
+		str = str.concat("" + critters.size() + " critters as follows -- ");
+		//System.out.print("" + critters.size() + " critters as follows -- ");
 		java.util.Map<String, Integer> critter_count = new java.util.HashMap<String, Integer>();
 		for (Critter crit : critters) {
 			String crit_string = crit.toString();
@@ -638,10 +649,13 @@ public abstract class Critter {
 		}
 		String prefix = "";
 		for (String s : critter_count.keySet()) {
-			System.out.print(prefix + s + ":" + critter_count.get(s));
+			str = str.concat(prefix + s + ":" + critter_count.get(s));
+			//System.out.print(prefix + s + ":" + critter_count.get(s));
 			prefix = ", ";
 		}
-		System.out.println();
+		//System.out.println();
+		
+		return str;
 	}
 	
 	
