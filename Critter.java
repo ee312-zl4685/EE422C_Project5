@@ -96,6 +96,13 @@ public abstract class Critter {
 		rand = new java.util.Random(new_seed);
 	}
 	
+	public int getX(){
+		return x_coord;
+	}
+	
+	public int getY(){
+		return y_coord;
+	}
 	
 	/* a one-character long string that visually depicts your critter in the ASCII interface */
 	public String toString() { return ""; }
@@ -551,6 +558,10 @@ public abstract class Critter {
 	   display component.
 	   // public static void displayWorld() {}
 	*/
+	public static List<Critter> displayWord(){
+		return population;
+		
+	}
 	
 	/**
 	 * create and initialize a Critter subclass.

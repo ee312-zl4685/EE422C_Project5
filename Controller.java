@@ -138,17 +138,19 @@ public class Controller {
                 e.printStackTrace();
             }
         }
-        ArrayList<Critter> population = (ArrayList<Critter>) TestCritter.getPopulation();
-        Iterator<Critter> it = population.iterator();
+        ArrayList<Critter> critterList = new ArrayList<Critter>();
+        critterList = (ArrayList<Critter>) Critter.displayWord();
+        Iterator<Critter> it = critterList.iterator();
         while(it.hasNext()){
-        	TestCritter a = (TestCritter) it.next();
+        	Critter a = (Critter) it.next();
         	Color tempC = a.viewColor();
+        	Color tempOC = a.viewOutlineColor();
         	CritterShape tempS = a.viewShape();
         	Circle cir = new Circle();
         	cir.setRadius(10);
         	cir.setFill(tempC);
-        	gridpane.add(cir, a.getX_coord(), a.getY_coord());
-        	System.out.print("asdhia");
+        	cir.setStroke(tempOC);
+        	gridpane.add(cir, a.getX(), a.getY());
         }
     }
     
