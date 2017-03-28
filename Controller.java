@@ -23,8 +23,7 @@ public class Controller {
         myPackage = Critter.class.getPackage().toString().split(" ")[1];
     }
 
-    ObservableList<String> critterNameList =
-            (ObservableList<String>) FXCollections.observableArrayList("Algae","Craig","Critter1","Critter2","Critter3","Critter4");
+    ObservableList<String> critterNameList = FXCollections.observableArrayList();
 
     @FXML
     private AnchorPane anchor;
@@ -123,6 +122,34 @@ public class Controller {
             gridpane.add(shape, a.getX(), a.getY());
         }
     }
+    
+     private static final String path = "./bin/assignment5";
+     private void getClassNames(){
+    	File dir = new File(path);
+    	File[] files = dir.listFiles(new FilenameFilter(){
+
+			@Override
+			public boolean accept(File dir, String name) {
+				if(name.endsWith(".class")){
+					return true;
+				}
+				return false;
+			}
+    	});
+    		for(File f : files){
+    			String name = f.getName().split(".class")[0];
+    			try{
+    				Critter.makeCritter(name);
+    				critterNameList.add(name);
+    			}
+    			catch (Exception e){
+    				System.out.println(name);
+    			}
+    			Critter.getPop().clear();
+    	}
+    	
+    }
+    
 
     @FXML
     private void goMakeCritter() throws IOException{
