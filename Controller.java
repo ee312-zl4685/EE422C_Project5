@@ -2,33 +2,22 @@ package assignment5;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
+import java.util.*;
 import assignment5.Critter.CritterShape;
-import assignment5.Critter.TestCritter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Slider;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.*;
 
 import static assignment5.Params.*;
 
 
 public class Controller {
 
+    private static Double SIZE = 20.0;
     private static String myPackage;
     static {
         myPackage = Critter.class.getPackage().toString().split(" ")[1];
@@ -80,7 +69,7 @@ public class Controller {
         cbMakeCritter.setItems(critterNameList);
         cbRunStats.setValue("Algae");
         cbRunStats.setItems(critterNameList);
-        displayGrid();        
+        initializeGrid();
     }
     
     @FXML
@@ -96,29 +85,43 @@ public class Controller {
     	}
     }
     
-    private void displayGrid() {
+    private void initializeGrid() {
         int c = world_height;
         int r = world_width;
-        int SIZE =20;
         int GAP = 2;
         gridpane.setVgap(GAP);
         gridpane.setHgap(GAP);
-
         gridpane.setGridLinesVisible(false);
-
-        //gridpane.setPrefSize(300,300);
-
-        Color[] colors =  {Color.WHITE};
         for(int i =0; i< r; i++) {
             for(int j=0; j<c; j++){
                 Rectangle rec = new Rectangle();
                 rec.setHeight(SIZE);
                 rec.setWidth(SIZE);
-                rec.setFill(colors[Critter.getRandomInt(colors.length)]);
+                rec.setFill(Color.WHITE);
                 gridpane.add(rec,i,j);
             }
         }
-       
+    }
+    private void displayGrid() {
+        int c = world_height;
+        int r = world_width;
+        int GAP = 2;
+        gridpane.setVgap(GAP);
+        gridpane.setHgap(GAP);
+        gridpane.setGridLinesVisible(false);
+
+        ArrayList<Critter> critterList = new ArrayList<Critter>();
+        critterList = (ArrayList<Critter>) Critter.getPop();
+        Iterator<Critter> it = critterList.iterator();
+        while(it.hasNext()){
+            Critter a = it.next();
+            Color aFillColor = a.viewFillColor();
+            Color aOutlineColor = a.viewOutlineColor();
+            Shape shape = getShape(a.viewShape());
+            shape.setFill(aFillColor);
+            shape.setStroke(aOutlineColor);
+            gridpane.add(shape, a.getX(), a.getY());
+        }
     }
 
     @FXML
@@ -138,18 +141,51 @@ public class Controller {
                 e.printStackTrace();
             }
         }
-        ArrayList<Critter> population = (ArrayList<Critter>) TestCritter.getPopulation();
-        Iterator<Critter> it = population.iterator();
-        while(it.hasNext()){
-        	TestCritter a = (TestCritter) it.next();
-        	Color tempC = a.viewColor();
-        	CritterShape tempS = a.viewShape();
-        	Circle cir = new Circle();
-        	cir.setRadius(10);
-        	cir.setFill(tempC);
-        	gridpane.add(cir, a.getX_coord(), a.getY_coord());
-        	System.out.print("asdhia");
+        gridpane.getChildren().clear();
+        initializeGrid();
+        displayGrid();
+    }
+
+    private Shape getShape(CritterShape critterShape){
+        switch (critterShape){
+            case CIRCLE: {
+                Circle cir = new Circle();
+                cir.setRadius(SIZE/2);
+                return cir;
+            }
+            case SQUARE: {
+                Rectangle rect = new Rectangle();
+                rect.setHeight(SIZE);
+                rect.setWidth(SIZE);
+                return rect;
+            }
+            case TRIANGLE: {
+                Polygon triangle = new Polygon();
+                triangle.getPoints().addAll(new Double[]{
+                    SIZE/2, 0.0,
+                    0.0, SIZE,
+                    SIZE, SIZE
+                });
+                return triangle;
+            }
+            case STAR:{
+                Polygon star = new Polygon();
+                return star;
+            }
+            case DIAMOND:{
+                Polygon diamond = new Polygon();
+                diamond.getPoints().addAll(new Double[]{
+                    0.0, SIZE/2,
+                    SIZE/2, 0.0,
+                    SIZE, SIZE/2,
+                    SIZE/2, SIZE});
+                return diamond;
+            }
+            default: {
+                return new Circle();
+            }
         }
+
     }
     
 
@@ -169,6 +205,9 @@ public class Controller {
             Critter.worldTimeStep();
             Quantity -= 1;
         }
+        gridpane.getChildren().clear();
+        initializeGrid();
+        displayGrid();
     }
 
 
