@@ -1,5 +1,7 @@
 package assignment5;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -64,6 +66,7 @@ public class Controller {
 
     @FXML
     private void initialize(){
+    	getClassNames();
         cbMakeCritter.setValue("Algae");
         cbMakeCritter.setItems(critterNameList);
         cbRunStats.setValue("Algae");
@@ -85,6 +88,7 @@ public class Controller {
     }
     
     private void initializeGrid() {
+    	
         int c = world_height;
         int r = world_width;
         int GAP = 2;
@@ -143,7 +147,6 @@ public class Controller {
     				critterNameList.add(name);
     			}
     			catch (Exception e){
-    				System.out.println(name);
     			}
     			Critter.getPop().clear();
     	}
