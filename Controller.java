@@ -127,21 +127,21 @@ public class Controller {
         }
     }
     
-     private static final String path = "./bin/assignment5";
+     private static final String path = "./src/assignment5";
      private void getClassNames(){
     	File dir = new File(path);
     	File[] files = dir.listFiles(new FilenameFilter(){
 
 			@Override
 			public boolean accept(File dir, String name) {
-				if(name.endsWith(".class")){
+				if(name.endsWith(".java")){
 					return true;
 				}
 				return false;
 			}
     	});
     		for(File f : files){
-    			String name = f.getName().split(".class")[0];
+    			String name = f.getName().split(".java")[0];
     			try{
     				Critter.makeCritter(name);
     				critterNameList.add(name);
