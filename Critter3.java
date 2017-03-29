@@ -13,6 +13,8 @@
 package assignment5;
 import java.util.*;
 
+import assignment5.Critter.CritterShape;
+
 /*  Critter3 is also known as Bolt Critter, this critter runs in a circle.
     It cannot fight itself due to self-respect, but it loves to fight others.
     Critter3s are rare in the world, so we keep track of how many ever existed.
@@ -79,10 +81,17 @@ public class Critter3 extends Critter {
 
 
 
-	@Override
+    @Override
 	public CritterShape viewShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return CritterShape.STAR;
+	}
+	@Override
+	public javafx.scene.paint.Color viewFillColor() { 
+		return javafx.scene.paint.Color.ALICEBLUE; 
+	}
+	@Override
+	public javafx.scene.paint.Color viewOutlineColor() { 
+		return javafx.scene.paint.Color.CYAN; 
 	}
 
 }

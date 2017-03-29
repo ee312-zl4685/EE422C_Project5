@@ -13,6 +13,8 @@
 package assignment5;
 import java.util.*;
 
+import assignment5.Critter.CritterShape;
+
 import static assignment5.Params.*;
 
 /*
@@ -85,10 +87,17 @@ public class Critter4 extends Critter {
         return "M";
     }
 
-	@Override
+    @Override
 	public CritterShape viewShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return CritterShape.CIRCLE;
+	}
+	@Override
+	public javafx.scene.paint.Color viewFillColor() { 
+		return javafx.scene.paint.Color.DARKVIOLET; 
+	}
+	@Override
+	public javafx.scene.paint.Color viewOutlineColor() { 
+		return javafx.scene.paint.Color.FUCHSIA; 
 	}
 
 }

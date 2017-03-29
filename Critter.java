@@ -523,7 +523,6 @@ public abstract class Critter {
 		timestep += 1;
 
 		Iterator<Critter> it = population.iterator();
-		it.next().look(2, true);
 		while (it.hasNext()) {
 			it.next().doTimeStep();	//run each Critters TimeStep
 		}
