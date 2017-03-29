@@ -1,5 +1,7 @@
 package assignment5;
 
+import assignment5.Critter.CritterShape;
+
 /*
  * Critter2 created by Zhaofeng Liang
  * Critter2 is a type of critter that decides to either rest, walk, run base on
@@ -108,10 +110,17 @@ public class Critter2 extends Critter {
         return str;
     }
 
-	@Override
+    @Override
 	public CritterShape viewShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return CritterShape.DIAMOND;
+	}
+	@Override
+	public javafx.scene.paint.Color viewOutlineColor() { 
+		return javafx.scene.paint.Color.DEEPSKYBLUE; 
+	}
+	@Override
+	public javafx.scene.paint.Color viewFillColor() { 
+		return javafx.scene.paint.Color.AQUAMARINE; 
 	}
 
 }

@@ -174,41 +174,56 @@ public class Controller {
         gridpane.getChildren().clear();
         initializeGrid();
         displayGrid();
+        goRunStats();
     }
 
     private Shape getShape(CritterShape critterShape){
+    	double size = SIZE - 2;
         switch (critterShape){
             case CIRCLE: {
                 Circle cir = new Circle();
-                cir.setRadius(SIZE/2);
+                cir.setRadius((SIZE-2)/2);
                 return cir;
             }
             case SQUARE: {
                 Rectangle rect = new Rectangle();
-                rect.setHeight(SIZE);
-                rect.setWidth(SIZE);
+                rect.setHeight(SIZE-1);
+                rect.setWidth(SIZE-1);
                 return rect;
             }
             case TRIANGLE: {
                 Polygon triangle = new Polygon();
                 triangle.getPoints().addAll(new Double[]{
-                    SIZE/2, 0.0,
-                    0.0, SIZE,
-                    SIZE, SIZE
+                    (SIZE-2)/2, 1.0,
+                    1.0, SIZE-2,
+                    SIZE-2, SIZE-2
                 });
                 return triangle;
             }
             case STAR:{
                 Polygon star = new Polygon();
+		    star.getPoints().addAll(new Double[]{
+                        size/2, 1.0,
+                        size*.65, size/4,
+                        size-1, size/4,
+                        size*.70, size/2,
+                        size-1, size*.75,
+                        size*.65, size*.75,
+                        size/2, size,
+                        size*.35, size*.75,
+                        1.0, size*.75,
+                        size*.30, size/2,
+                        1.0, size/4,
+                        size*.35, size/4});
                 return star;
             }
             case DIAMOND:{
                 Polygon diamond = new Polygon();
                 diamond.getPoints().addAll(new Double[]{
-                    0.0, SIZE/2,
-                    SIZE/2, 0.0,
-                    SIZE, SIZE/2,
-                    SIZE/2, SIZE});
+                    1.0, (SIZE-1)/2,
+                    (SIZE-1)/2, 1.0,
+                    SIZE-2, (SIZE-1)/2,
+                    (SIZE-1)/2, SIZE-2});
                 return diamond;
             }
             default: {
@@ -238,6 +253,7 @@ public class Controller {
         gridpane.getChildren().clear();
         initializeGrid();
         displayGrid();
+        goRunStats();
     }
 
 
