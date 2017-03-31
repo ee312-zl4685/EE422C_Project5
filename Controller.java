@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
 import assignment5.Critter.CritterShape;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -21,8 +22,9 @@ import static assignment5.Params.*;
 
 public class Controller {
 
-	private static Double SIZE = 20.0;
+	private static Double SIZE = 7.0;
 	private static String myPackage;
+	//private static Timeline timeline;
 	static {
 		myPackage = Critter.class.getPackage().toString().split(" ")[1];
 	}
@@ -67,10 +69,14 @@ public class Controller {
 
 	@FXML
 	private RadioButton bAnime;
+	
+	@FXML
+	private AnchorPane rightP;
 
 	@FXML
 	private void initialize() {
-		getClassNames();
+		getClassNames();		
+	//	setSize();
 		cbMakeCritter.setValue("Algae");
 		cbMakeCritter.setItems(critterNameList);
 		cbRunStats.setValue("Algae");
@@ -78,7 +84,9 @@ public class Controller {
 		initializeGrid();
 		initializeSlider();
 	}
-
+	
+	
+	
 	@FXML
 	private void initializeSlider() {
 		SpeedSlider.setMin(1);
@@ -93,35 +101,79 @@ public class Controller {
 
 	@FXML
 	private void animationSpeed() {
-		if (bAnime.isSelected()) {
-			Speed.setText(Integer.toString(((int) SpeedSlider.getValue())));
-		} else {
-			Speed.clear();
+		
+		Speed.setText(Integer.toString(((int) SpeedSlider.getValue())));
+	}
+	
+	@FXML
+	private void checkAction(){
+		if(bAnime.isSelected()){
+			SpeedSlider.setDisable(true);
+			cbMakeCritter.setDisable(true);
+			bMakeCritter.setDisable(true);
+			cbRunStats.setDisable(true);
+			bRunStats.setDisable(true);
+			tfSteps.setDisable(true);
+			tfMakeCritter.setDisable(true);
+			bSteps.setDisable(true);
+			animationSpeed();
+			animationAction();
+		}
+		else{
+			SpeedSlider.setDisable(false);
+			SpeedSlider.setDisable(false);
+			cbMakeCritter.setDisable(false);
+			bMakeCritter.setDisable(false);
+			cbRunStats.setDisable(false);
+			bRunStats.setDisable(false);
+			tfSteps.setDisable(false);
+			tfMakeCritter.setDisable(false);
+			bSteps.setDisable(false);
 		}
 	}
-
+	
+	Timeline timeline = new Timeline();
 	@FXML
 	private void animationAction() {
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ev->{
+		
+		KeyFrame keyframe = new KeyFrame(Duration.seconds(0.4), ev->{
+			int speed = Integer.parseInt(Speed.getText());
+			while(speed != 0){
+			if(!bAnime.isSelected()){
+				timeline.stop();
+				timeline.getKeyFrames().clear();
+				Speed.clear();
+				return;
+	
+			}
 			try {
 				timeStep();
 			} catch (Exception e) {
 				e.printStackTrace();
-			} 
-		}));
-		timeline.setCycleCount(20);
-		timeline.play();
+			}
+			finally{
+				speed--;
+				
+			}
+			}
+		});
+		timeline.getKeyFrames().add(keyframe);
+		timeline.setCycleCount(Animation.INDEFINITE);
+		//timeline.play();
+		timeline.playFromStart();
 	}
 
 	@FXML
 	private void setSize() {
-		double width = gridpane.getWidth();
-		double height = gridpane.getHeight();
-		if (width > splitP.getWidth()) {
-			splitP.resize(width, splitP.getHeight());
+		int width = (int)rightP.getMaxWidth();
+		int height = (int)rightP.getMaxHeight();
+		int a = height/world_height;
+		int b = width/world_width;
+		if(a > b && b < SIZE){
+			SIZE = (double)b;	
 		}
-		if (height > splitP.getHeight()) {
-			splitP.resize(width, height);
+		if(a < b && a < SIZE){
+			SIZE = (double)a;
 		}
 	}
 
