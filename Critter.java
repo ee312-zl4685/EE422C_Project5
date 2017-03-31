@@ -35,7 +35,7 @@ public abstract class Critter {
 
 	public abstract CritterShape viewShape();
 
-	private static int timestep; //Variable to keep track of time (used in the future)
+	public static int timestep; //Variable to keep track of time (used in the future)
 	private static String myPackage;
 	private	static List<Critter> population = new java.util.ArrayList<Critter>();
 	private static List<Critter> babies = new java.util.ArrayList<Critter>();

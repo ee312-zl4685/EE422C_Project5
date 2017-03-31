@@ -203,18 +203,18 @@ public class Controller {
             case STAR:{
                 Polygon star = new Polygon();
 		    star.getPoints().addAll(new Double[]{
-                        size/2, 1.0,
-                        size*.65, size/4,
-                        size-1, size/4,
-                        size*.70, size/2,
-                        size-1, size*.75,
-                        size*.65, size*.75,
-                        size/2, size,
-                        size*.35, size*.75,
-                        1.0, size*.75,
-                        size*.30, size/2,
-                        1.0, size/4,
-                        size*.35, size/4});
+                size/2, 1.0,
+                size*.65, size/4,
+                size-1, size/4,
+                size*.70, size/2,
+                size-1, size*.75,
+                size*.65, size*.75,
+                size/2, size,
+                size*.35, size*.75,
+                1.0, size*.75,
+                size*.30, size/2,
+                1.0, size/4,
+                size*.35, size/4});
                 return star;
             }
             case DIAMOND:{
@@ -250,8 +250,10 @@ public class Controller {
             Critter.worldTimeStep();
             Quantity -= 1;
         }
+        tfSteps.setText("");
         gridpane.getChildren().clear();
         initializeGrid();
+        tfTime.setText(Critter.timestep+"s");
         displayGrid();
         goRunStats();
     }

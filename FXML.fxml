@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -11,31 +12,31 @@
             <items>
                 <AnchorPane maxHeight="574.0" maxWidth="269.0" minHeight="574.0" minWidth="269.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                     <children>
-                        <Pane layoutX="11.0" layoutY="24.0" maxWidth="100.0" maxHeight="160.0">
+                        <Pane layoutX="11.0" layoutY="24.0" maxHeight="539.0" maxWidth="251.0" prefHeight="539.0" prefWidth="251.0">
                             <children>
                                 <ChoiceBox id="cbStats" fx:id="cbRunStats" layoutX="5.0" layoutY="85.0" prefHeight="31.0" prefWidth="150.0" />
-                                <TextField id="tfTime" fx:id="tfTime" layoutX="158.0" layoutY="170.0" prefHeight="31.0" prefWidth="84.0" promptText="Time" />
                                 <TextField id="tfSpeed" fx:id="Speed" layoutX="5.0" layoutY="170.0" prefHeight="31.0" prefWidth="76.0" promptText="Speed" />
                                 <Slider id="Speed" fx:id="SpeedSlider" layoutX="3.0" layoutY="140.0" prefHeight="18.0" prefWidth="245.0" />
                                 <ChoiceBox id="cbMakeCritter" fx:id="cbMakeCritter" layoutX="3.0" prefHeight="31.0" prefWidth="90.0" />
                                 <Button id="bTime" fx:id="bSteps" layoutX="155.0" layoutY="42.0" mnemonicParsing="false" onAction="#timeStep" prefHeight="31.0" prefWidth="90.0" text="Step" />
                                 <Button id="bMakeCritter" fx:id="bMakeCritter" layoutX="152.0" mnemonicParsing="false" onAction="#goMakeCritter" prefHeight="31.0" prefWidth="90.0" text="Make" />
                                 <TextField id="tfTimeStep" fx:id="tfSteps" layoutX="3.0" layoutY="42.0" prefHeight="31.0" prefWidth="153.0" promptText="Enter time steps" />
-                                <TextArea fx:id="RunStatsConsole" editable="false" layoutY="215.0" prefHeight="296.0" prefWidth="245.0" promptText="Stats shown here" wrapText="true" />
+                                <TextArea fx:id="RunStatsConsole" editable="false" layoutX="3.0" layoutY="219.0" prefHeight="306.0" prefWidth="245.0" promptText="Stats shown here" wrapText="true" />
                                 <TextField id="tfMakeCritter" fx:id="tfMakeCritter" layoutX="93.0" prefHeight="31.0" prefWidth="60.0" promptText="Enter Quantity" />
                                 <Button id="bStats" fx:id="bRunStats" layoutX="155.0" layoutY="85.0" mnemonicParsing="false" onAction="#goRunStats" prefHeight="31.0" prefWidth="90.0" text="Confirm" />
+                                <TextField id="taTime" fx:id="tfTime" editable="false" layoutX="148.0" layoutY="166.0" prefHeight="40.0" prefWidth="90.0" promptText="Time" />
                             </children>
-                        </Pane >
+                        </Pane>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
                         <GridPane fx:id="gridpane" gridLinesVisible="true" layoutX="8.0" layoutY="7.0" prefHeight="566.0" prefWidth="622.0">
                             <columnConstraints>
-                                <ColumnConstraints  />
+                                <ColumnConstraints />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints/>
+                                <RowConstraints />
                             </rowConstraints>
                         </GridPane>
                     </children></AnchorPane>
