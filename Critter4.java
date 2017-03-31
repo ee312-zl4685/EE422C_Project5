@@ -14,77 +14,87 @@ package assignment5;
 import java.util.*;
 
 import assignment5.Critter.CritterShape;
+import javafx.scene.paint.Color;
 
 import static assignment5.Params.*;
 
-/*
-    Critter4 is also known as the Mama Critter
-    Critter4 has the special ability to get pregnant and have up-to 8 children in a turn.
-    Critter4 are specially loving and in support of their pacifist beliefs, they choose not to fight anyone.
-* */
+
 
 public class Critter4 extends Critter {
 
-    private boolean isPregnant;
-    private int lucky;
+    private boolean step;
     private int dir;
 
     public Critter4(){
-        isPregnant=false;
+        step=true;
         dir = Critter.getRandomInt(8);
-        lucky = Critter.getRandomInt(start_energy);
     }
 
     @Override
     public void doTimeStep() {
-        walk(dir);
-
-
-        if(lucky == Critter.getRandomInt(start_energy)) {
-            isPregnant = true;
-            lucky = lucky%8;
-
+        if(getEnergy() < 50) {
+            run(dir);
+            step=false;
+            return;
+        } else if(getEnergy() >= 50 && getEnergy() <85) {
+            walk(dir);
+            step = false;
+        } else if(getEnergy() >= 85 && getEnergy() <= 130) {
+            walk(getRandomInt(8));
+        } else if(getEnergy() > 130) {
+            dir = getRandomInt(8);
+            Critter4 child = new Critter4();
+            reproduce(child, dir);
         }
-
-        if(isPregnant) {
-            while(lucky > 0){
-                Critter4 child = new Critter4();
-                reproduce(child, Critter.getRandomInt(8));
-                walk(0);
-            }
-
-        }
-
-        dir = Critter.getRandomInt(8);
-        lucky = Critter.getRandomInt(this.getEnergy());
-        isPregnant=false;
-
     }
 
     @Override
     public boolean fight(String opponent) {
-        return false;
+        if (opponent.equals("@")) return true;
+        if(step) {
+            String walkAttempt = look(dir, false);
+            String runAttempt = look(dir, true);
+            if(walkAttempt != null && walkAttempt.equals("@")) {
+                walk(dir);
+                step = false;
+                return true;
+            }
+            if(runAttempt != null &&  runAttempt.equals("@")){
+                run(dir);
+                step = false;
+                return true;
+            }
+            else {
+                run(dir);
+                step = false;
+            }
+        }
+        return true;
     }
 
     public static String runStats(List<Critter> critters) {
-    	String str = "";
-        int preg =0;
+    	int Elite=0;
+        int nearDead=0;
+        String str = "";
         Critter4 temp;
         for(Object c : critters){
             temp = (Critter4) c;
-            if(temp.isPregnant)
-                preg += 1;
+            if(temp.getEnergy()>130) Elite++;
+            if(temp.getEnergy()<30) nearDead++;
         }
         str = str.concat(critters.size()+" MyCritter4s in the world.");
         str = str.concat("\n");
         str = str.concat("\n");
-        str = str.concat(preg + " are pregnant MyCritter4s.");
+        str = str.concat(Elite + " are thriving and might become parents.");
+        str = str.concat("\n");
+        str = str.concat("\n");
+        str = str.concat(nearDead + " are almost dead.");
         return str;
     }
 
 
     public String toString() {
-        return "M";
+        return "S";
     }
 
     @Override
@@ -93,11 +103,11 @@ public class Critter4 extends Critter {
 	}
 	@Override
 	public javafx.scene.paint.Color viewFillColor() { 
-		return javafx.scene.paint.Color.DARKVIOLET; 
+		return Color.GOLD;
 	}
 	@Override
 	public javafx.scene.paint.Color viewOutlineColor() { 
-		return javafx.scene.paint.Color.FUCHSIA; 
+		return Color.RED;
 	}
 
 }
