@@ -19,7 +19,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
 		    
 	        Scene scene = new Scene(root);
-	    
+	        primaryStage.setTitle("CritterSimulator Ver.1.0");
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 			// Paints the icons. 
