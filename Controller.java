@@ -288,5 +288,21 @@ public class Controller {
 
     }
 
+    @FXML
+    private void assignSeed() {
+        TextInputDialog dialog= new TextInputDialog("");
+        dialog.setTitle("Set Seed");
+        dialog.setHeaderText("Set a seed value for randomization");
+        dialog.setContentText("Enter:");
+
+        Optional<String> input = dialog.showAndWait();
+        if(input.isPresent()){
+            try{
+                Integer seed = Integer.parseInt(input.get());
+                Critter.setSeed(seed);
+            } catch (Exception e){}
+        }
+
+    }
 
 }
