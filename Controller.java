@@ -166,13 +166,13 @@ public class Controller {
 
 	@FXML
 	private void setSize() {
-		if(world_height > 80 || world_width > 80){
+		if(world_height > 80 || world_width > 110){
 			SIZE = 5.0;
 		}
-		else if((world_height > 50 && world_height <= 80) ||(world_height > 50 && world_height <= 80)){
+		else if((world_height > 50 && world_height <= 80) ||(world_height > 50 && world_height <= 80) || (world_width > 78 && world_width <= 110)){
 			SIZE = 8.0;
 		}
-		else if((world_height > 30 && world_height <= 50) ||(world_height > 30 && world_height <= 50)){
+		else if((world_height > 30 && world_height <= 50) ||(world_height > 30 && world_height <= 50) || (world_width > 50 && world_width <= 78)){
 			SIZE = 12.0;
 		}
 		else {
