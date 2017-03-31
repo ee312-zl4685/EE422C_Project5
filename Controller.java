@@ -258,6 +258,10 @@ public class Controller {
         goRunStats();
     }
 
+    @FXML
+    private void Exit() {
+        System.exit(0);
+    }
 
     @FXML
     private void goRunStats() throws IOException{
