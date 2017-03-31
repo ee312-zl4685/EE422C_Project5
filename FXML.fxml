@@ -6,28 +6,24 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="910.0" style="-fx-background-color: RED;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="867.0" prefWidth="1392.0" style="-fx-background-color: RED;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5.Controller">
     <children>
         <SplitPane dividerPositions="0.30066079295154186" layoutY="31.0" prefHeight="576.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
             <items>
                 <AnchorPane maxHeight="574.0" maxWidth="269.0" minHeight="574.0" minWidth="269.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                     <children>
-                        <Pane layoutX="11.0" layoutY="24.0" maxHeight="539.0" maxWidth="251.0" prefHeight="539.0" prefWidth="251.0">
-                            <children>
-                                <ChoiceBox id="cbStats" fx:id="cbRunStats" layoutX="5.0" layoutY="85.0" prefHeight="31.0" prefWidth="150.0" />
-                                <TextField id="tfSpeed" fx:id="Speed" layoutX="5.0" layoutY="170.0" prefHeight="31.0" prefWidth="76.0" promptText="Speed" />
-                                <Slider id="Speed" fx:id="SpeedSlider" layoutX="3.0" layoutY="122.0" onContextMenuRequested="#animationSpeed" onDragDetected="#animationSpeed" onDragDone="#animationSpeed" onDragDropped="#animationSpeed" onDragEntered="#animationSpeed" onDragExited="#animationSpeed" onDragOver="#animationSpeed" onMouseClicked="#animationSpeed" onMouseDragEntered="#animationSpeed" onMouseDragExited="#animationSpeed" onMouseDragOver="#animationSpeed" onMouseDragReleased="#animationSpeed" onMouseDragged="#animationSpeed" onMouseEntered="#animationSpeed" onMouseExited="#animationSpeed" onMouseMoved="#animationSpeed" onMousePressed="#animationSpeed" onMouseReleased="#animationSpeed" onScroll="#animationSpeed" onScrollFinished="#animationSpeed" onScrollStarted="#animationSpeed" onTouchMoved="#animationSpeed" onTouchPressed="#animationSpeed" onTouchReleased="#animationSpeed" onTouchStationary="#animationSpeed" prefHeight="18.0" prefWidth="245.0" />
-                                <ChoiceBox id="cbMakeCritter" fx:id="cbMakeCritter" layoutX="3.0" prefHeight="31.0" prefWidth="90.0" />
-                                <Button id="bTime" fx:id="bSteps" layoutX="155.0" layoutY="42.0" mnemonicParsing="false" onAction="#timeStep" prefHeight="31.0" prefWidth="90.0" text="Step" />
-                                <Button id="bMakeCritter" fx:id="bMakeCritter" layoutX="152.0" mnemonicParsing="false" onAction="#goMakeCritter" prefHeight="31.0" prefWidth="90.0" text="Make" />
-                                <TextField id="tfTimeStep" fx:id="tfSteps" layoutX="3.0" layoutY="42.0" prefHeight="31.0" prefWidth="153.0" promptText="Enter time steps" />
-                                <TextArea fx:id="RunStatsConsole" editable="false" layoutX="3.0" layoutY="219.0" prefHeight="306.0" prefWidth="245.0" promptText="Stats shown here" wrapText="true" />
-                                <TextField id="tfMakeCritter" fx:id="tfMakeCritter" layoutX="93.0" prefHeight="31.0" prefWidth="60.0" promptText="Enter Quantity" />
-                                <Button id="bStats" fx:id="bRunStats" layoutX="155.0" layoutY="85.0" mnemonicParsing="false" onAction="#goRunStats" prefHeight="31.0" prefWidth="90.0" text="Confirm" />
-                                <TextField id="taTime" fx:id="tfTime" editable="false" layoutX="148.0" layoutY="166.0" prefHeight="40.0" prefWidth="90.0" promptText="Time" />
-                        <RadioButton fx:id="bAnime" layoutX="99.0" layoutY="177.0" mnemonicParsing="false" onAction="#animationAction" />
-                            </children>
-                        </Pane>
+                          <Button id="bTime" fx:id="bSteps" layoutX="166.0" layoutY="66.0" mnemonicParsing="false" onAction="#timeStep" prefHeight="31.0" prefWidth="90.0" text="Step" />
+                          <TextField id="tfTimeStep" fx:id="tfSteps" layoutX="14.0" layoutY="66.0" prefHeight="31.0" prefWidth="153.0" promptText="Enter time steps" />
+                          <Button id="bStats" fx:id="bRunStats" layoutX="166.0" layoutY="109.0" mnemonicParsing="false" onAction="#goRunStats" prefHeight="31.0" prefWidth="90.0" text="Confirm" />
+                          <TextArea fx:id="RunStatsConsole" editable="false" layoutX="14.0" layoutY="243.0" prefHeight="306.0" prefWidth="245.0" promptText="Stats shown here" wrapText="true" />
+                          <TextField id="tfMakeCritter" fx:id="tfMakeCritter" layoutX="104.0" layoutY="24.0" prefHeight="31.0" prefWidth="60.0" promptText="Enter Quantity" />
+                          <Slider id="Speed" fx:id="SpeedSlider" layoutX="14.0" layoutY="146.0" onContextMenuRequested="#animationSpeed" onDragDetected="#animationSpeed" onDragDone="#animationSpeed" onDragDropped="#animationSpeed" onDragEntered="#animationSpeed" onDragExited="#animationSpeed" onDragOver="#animationSpeed" onMouseClicked="#animationSpeed" onMouseDragEntered="#animationSpeed" onMouseDragExited="#animationSpeed" onMouseDragOver="#animationSpeed" onMouseDragReleased="#animationSpeed" onMouseDragged="#animationSpeed" onMouseEntered="#animationSpeed" onMouseExited="#animationSpeed" onMouseMoved="#animationSpeed" onMousePressed="#animationSpeed" onMouseReleased="#animationSpeed" onScroll="#animationSpeed" onScrollFinished="#animationSpeed" onScrollStarted="#animationSpeed" onTouchMoved="#animationSpeed" onTouchPressed="#animationSpeed" onTouchReleased="#animationSpeed" onTouchStationary="#animationSpeed" prefHeight="18.0" prefWidth="245.0" />
+                  <RadioButton fx:id="bAnime" layoutX="110.0" layoutY="201.0" mnemonicParsing="false" onAction="#checkAction" />
+                          <TextField id="tfSpeed" fx:id="Speed" layoutX="16.0" layoutY="194.0" prefHeight="31.0" prefWidth="76.0" promptText="Speed" />
+                          <ChoiceBox id="cbMakeCritter" fx:id="cbMakeCritter" layoutX="14.0" layoutY="24.0" prefHeight="31.0" prefWidth="90.0" />
+                          <TextField id="taTime" fx:id="tfTime" editable="false" layoutX="159.0" layoutY="190.0" prefHeight="40.0" prefWidth="90.0" promptText="Time" />
+                          <ChoiceBox id="cbStats" fx:id="cbRunStats" layoutX="16.0" layoutY="109.0" prefHeight="31.0" prefWidth="150.0" />
+                          <Button id="bMakeCritter" fx:id="bMakeCritter" layoutX="163.0" layoutY="24.0" mnemonicParsing="false" onAction="#goMakeCritter" prefHeight="31.0" prefWidth="90.0" text="Make" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

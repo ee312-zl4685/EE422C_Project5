@@ -22,7 +22,7 @@ import static assignment5.Params.*;
 
 public class Controller {
 
-	private static Double SIZE = 7.0;
+	private static Double SIZE = 20.0;
 	private static String myPackage;
 	//private static Timeline timeline;
 	static {
@@ -76,7 +76,7 @@ public class Controller {
 	@FXML
 	private void initialize() {
 		getClassNames();		
-	//	setSize();
+		setSize();
 		cbMakeCritter.setValue("Algae");
 		cbMakeCritter.setItems(critterNameList);
 		cbRunStats.setValue("Algae");
@@ -90,13 +90,14 @@ public class Controller {
 	@FXML
 	private void initializeSlider() {
 		SpeedSlider.setMin(1);
+		SpeedSlider.setMin(0);
 		SpeedSlider.setMax(100);
 		SpeedSlider.setValue(1);
 		SpeedSlider.setShowTickLabels(true);
 		SpeedSlider.setShowTickMarks(true);
-		SpeedSlider.setMajorTickUnit(24);
-		SpeedSlider.setMinorTickCount(1);
-		SpeedSlider.setBlockIncrement(1);
+		SpeedSlider.setMajorTickUnit(50);
+		SpeedSlider.setMinorTickCount(5);
+		SpeedSlider.setBlockIncrement(10);
 	}
 
 	@FXML
@@ -165,15 +166,17 @@ public class Controller {
 
 	@FXML
 	private void setSize() {
-		int width = (int)rightP.getMaxWidth();
-		int height = (int)rightP.getMaxHeight();
-		int a = height/world_height;
-		int b = width/world_width;
-		if(a > b && b < SIZE){
-			SIZE = (double)b;	
+		if(world_height > 80 || world_width > 80){
+			SIZE = 5.0;
 		}
-		if(a < b && a < SIZE){
-			SIZE = (double)a;
+		else if((world_height > 50 && world_height <= 80) ||(world_height > 50 && world_height <= 80)){
+			SIZE = 8.0;
+		}
+		else if((world_height > 30 && world_height <= 50) ||(world_height > 30 && world_height <= 50)){
+			SIZE = 12.0;
+		}
+		else {
+			SIZE = 20.0;
 		}
 	}
 

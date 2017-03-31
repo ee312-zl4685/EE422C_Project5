@@ -69,7 +69,7 @@ public abstract class Critter {
 				return a.toString();
 			}
 		}
-
+		this.energy -= look_energy_cost;
 		return null;
 	}
 	
@@ -436,11 +436,11 @@ public abstract class Critter {
 					}
 					if((a != b) && a.dead == false && b.dead == false && (a.x_coord == b.x_coord) && (a.y_coord == b.y_coord)){
 						if(aResult == false && bResult == false){
-							if(a.getRandomInt(a.energy)>b.getRandomInt(b.energy)){
+							if(Critter.getRandomInt(a.energy)>Critter.getRandomInt(b.energy)){
 								a.energy += b.energy/2;
 								b.dead=true;
 								deadList.add(b);
-							} else if(a.getRandomInt(a.energy)<b.getRandomInt(b.energy)){
+							} else if(Critter.getRandomInt(a.energy)<Critter.getRandomInt(b.energy)){
 								b.energy += a.energy/2;
 								a.dead=true;
 								deadList.add(a);

@@ -22,7 +22,8 @@ public class Main extends Application {
 	    
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
-			// Paints the icons. Painter.paint();
+			// Paints the icons. 
+	        // Painter.paint();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
