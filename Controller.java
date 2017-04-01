@@ -350,6 +350,14 @@ public class Controller {
 	private void Exit() {
 		System.exit(0);
 	}
+	@FXML
+    private void help(){
+	    Alert alert =new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Help");
+        alert.setHeaderText(null);
+        alert.setContentText("Please refer to the ReadMe: https://github.com/ee312-zl4685/EE422C_Project5/blob/master/README.pdf");
+        alert.showAndWait();
+	}
 
 	@FXML
 	private void goRunStats() throws IOException {
