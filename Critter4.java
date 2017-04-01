@@ -1,5 +1,5 @@
 /* CRITTERS Critter4.java
- * EE422C Project 4 submission by
+ * EE422C Project 5 submission by
  * Zhaofeng Liang
  * zl4685
  * 16230
@@ -7,7 +7,7 @@
  * szi58
  * 16230
  * Slip days used: 0
- * https://github.com/ee312-zl4685/EE422C_Project4
+ *  https://github.com/ee312-zl4685/EE422C_Project5.git
  * Spring 2017
  */
 package assignment5;
@@ -39,9 +39,9 @@ public class Critter4 extends Critter {
         } else if(getEnergy() >= 50 && getEnergy() <85) {
             walk(dir);
             step = false;
-        } else if(getEnergy() >= 85 && getEnergy() <= 130) {
+        } else if(getEnergy() >= 85 && getEnergy() <= 150) {
             walk(getRandomInt(8));
-        } else if(getEnergy() > 130) {
+        } else if(getEnergy() > 150) {
             dir = getRandomInt(8);
             Critter4 child = new Critter4();
             reproduce(child, dir);
@@ -79,7 +79,7 @@ public class Critter4 extends Critter {
         Critter4 temp;
         for(Object c : critters){
             temp = (Critter4) c;
-            if(temp.getEnergy()>130) Elite++;
+            if(temp.getEnergy()>150) Elite++;
             if(temp.getEnergy()<30) nearDead++;
         }
         str = str.concat(critters.size()+" MyCritter4s in the world.");

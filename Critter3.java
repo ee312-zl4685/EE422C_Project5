@@ -1,5 +1,5 @@
 /* CRITTERS Critter3.java
- * EE422C Project 4 submission by
+ * EE422C Project 5 submission by
  * Zhaofeng Liang
  * zl4685
  * 16230
@@ -7,7 +7,7 @@
  * szi58
  * 16230
  * Slip days used: 0
- * https://github.com/ee312-zl4685/EE422C_Project4
+ *  https://github.com/ee312-zl4685/EE422C_Project5.git
  * Spring 2017
  */
 package assignment5;

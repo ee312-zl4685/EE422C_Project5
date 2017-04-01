@@ -1,4 +1,16 @@
 package assignment5;
+/* CRITTERS Controller.java
+ * EE422C Project 5 submission by
+ * Zhaofeng Liang
+ * zl4685
+ * 16230
+ * Zohaib Imam
+ * szi58
+ * 16230
+ * Slip days used: 0
+ *  https://github.com/ee312-zl4685/EE422C_Project5.git
+ * Spring 2017
+ */
 
 import java.io.File;
 import java.io.FilenameFilter;
